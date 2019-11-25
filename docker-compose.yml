@@ -10,6 +10,7 @@ services:
       - "./nginx/etc/conf.d:/etc/nginx/conf.d:ro"
     environment:
       TZ: 'Asia/Shanghai'
+    #network_mode: "host" # mac: host.docker.internal
     links:
       - mysql:mysql
     depends_on:
@@ -19,6 +20,7 @@ services:
     container_name: mysql
     ports:
       - "3306:3306"
+    #network_mode: "host" # mac: host.docker.internal 
     volumes:
       - "./mysql/etc/my.cnf:/etc/mysql/my.cnf:ro"
       - "./mysql/data:/var/lib/mysql"
